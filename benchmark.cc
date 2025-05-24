@@ -32,6 +32,7 @@
 
 // STL
 #include <tr1/memory>
+#include <memory>
 
 // po6
 #include <po6/threads/thread.h>
@@ -89,8 +90,8 @@ main(int argc, const char* argv[])
     ap.arg().name('b', "backup")
             .description("perform a live backup every N seconds (default: 0 (no backup))")
             .as_long(&_backup);
-    const std::auto_ptr<armnod_argparser> key_parser(armnod_argparser::create("key-"));
-    const std::auto_ptr<armnod_argparser> value_parser(armnod_argparser::create("value-"));
+    const std::unique_ptr<armnod_argparser> key_parser(armnod_argparser::create("key-"));
+    const std::unique_ptr<armnod_argparser> value_parser(armnod_argparser::create("value-"));
     ap.add("Key Generation:", key_parser->parser());
     ap.add("Value Generation:", value_parser->parser());
 
