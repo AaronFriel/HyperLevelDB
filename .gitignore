@@ -6,6 +6,7 @@
 *.lo
 *.o
 *_test
+compile
 # specific files
 /aclocal.m4
 /autom4te.cache/
