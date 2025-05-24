@@ -117,7 +117,7 @@ main(int argc, const char* argv[])
             continue;
         }
 
-        std::auto_ptr<leveldb::Iterator> it(db->NewIterator(leveldb::ReadOptions()));
+        std::unique_ptr<leveldb::Iterator> it(db->NewIterator(leveldb::ReadOptions()));
         it->SeekToFirst();
 
         while (it->Valid())
@@ -136,7 +136,6 @@ main(int argc, const char* argv[])
         }
 
         std::cout << std::flush;
-        it.reset();
         delete db;
     }
 
