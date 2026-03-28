@@ -3,11 +3,14 @@ ifeq ($(shell [ $(THREADS) -gt 8 ] && echo yes),yes)
 THREADS := 8
 endif
 
-.PHONY: all clones HyperLevelDB
+.PHONY: all clones lint HyperLevelDB
 
 all: HyperLevelDB
 
 clones:
+
+lint:
+	./check.sh
 
 HyperLevelDB:
 	cd .. && autoreconf -i
